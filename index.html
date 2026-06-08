@@ -44,6 +44,36 @@
             z-index: 1000;
         }
 
+        /* Floating Contact Bubble */
+        .floating-contact-bubble {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-contact-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .floating-contact-bubble svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
         .lang-btn {
             padding: 12px 24px;
             background: rgba(255, 255, 255, 0.8);
@@ -294,15 +324,15 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            min-height: 100svh;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 24px;
+            padding: 40px 24px;
             position: relative;
             overflow: visible; /* Позволяем выпадающему списку выходить за границы */
             z-index: 100; /* Перекрываем нижележащие секции */
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
         }
 
         .hero::before {
@@ -388,25 +418,56 @@
         }
 
         .hero .tagline-box {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            padding: 32px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 32px;
+            padding: 40px;
             margin-bottom: 32px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px -15px rgba(59, 130, 246, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .tagline-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #a855f7 50%, #3b82f6 100%);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero .tagline {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
         }
 
         .hero .description {
-            font-size: 18px;
-            color: #666;
+            font-size: 16px;
+            color: #64748b;
             line-height: 1.8;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            position: relative;
+            padding-top: 24px;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
         }
 
         .hero .cta {
@@ -429,20 +490,14 @@
 
         /* Section Styles */
         section {
-            padding: 80px 24px;
+            padding: 24px 24px;
         }
 
         section:not(.hero) {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        section:not(.hero).visible {
             opacity: 1;
             transform: translateY(0);
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -459,7 +514,7 @@
 
         /* Skills Section */
         .skills-section {
-            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
         }
 
         .skills-grid {
@@ -647,35 +702,7 @@
 
         /* AI Strategy Section */
         .ai-strategy-section {
-            background: radial-gradient(180deg, #fafbfd 0%, #f1f5f9 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ai-strategy-section::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(59, 130, 246, 0.05);
-            border-radius: 50%;
-            top: 10%;
-            left: -100px;
-            filter: blur(60px);
-            pointer-events: none;
-        }
-
-        .ai-strategy-section::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(168, 85, 247, 0.05);
-            border-radius: 50%;
-            bottom: 10%;
-            right: -100px;
-            filter: blur(60px);
-            pointer-events: none;
+            background: linear-gradient(135deg, #faf5ff 0%, #f0f4ff 100%);
         }
 
         .strategy-grid {
@@ -821,16 +848,21 @@
             align-items: center;
             gap: 10px;
             padding: 14px 28px;
-            background: #0f172a;
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
             color: #ffffff;
             text-decoration: none;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px -4px rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             flex-shrink: 0;
+        }
+
+        .featured-app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -4px rgba(59, 130, 246, 0.4);
         }
 
         .flowchart-node::after {
@@ -914,15 +946,19 @@
             50% { transform: translateY(4px); opacity: 1; }
         }
 
-        /* Banana Peel Flip Effect */
+        /* 3D Flip Effect */
         .flowchart-step {
-            perspective: 800px;
+            perspective: 1000px;
             cursor: pointer;
             min-height: 88px;
         }
 
         .flowchart-step.target-step {
             perspective: none;
+            cursor: default;
+        }
+
+        .flowchart-step.flipped {
             cursor: default;
         }
 
@@ -948,38 +984,6 @@
             position: relative;
         }
 
-        .flowchart-step:not(.target-step) .flowchart-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-top: 18px solid rgba(148, 163, 184, 0.28);
-            border-left: 18px solid transparent;
-            border-top-right-radius: 14px;
-            transition: border-top-color 0.25s ease;
-            pointer-events: none;
-        }
-
-        .flowchart-step:not(.target-step) .flowchart-front::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-top: 12px solid rgba(255, 255, 255, 0.85);
-            border-left: 12px solid transparent;
-            transform: translate(-1px, 1px);
-            transition: border-top-color 0.25s ease;
-            pointer-events: none;
-        }
-
-        .flowchart-step:not(.target-step):hover .flowchart-front::before {
-            border-top-color: rgba(59, 130, 246, 0.35);
-        }
-
         .flowchart-back {
             position: absolute;
             top: 0;
@@ -994,10 +998,45 @@
             align-items: flex-start;
             justify-content: flex-start;
             align-content: flex-start;
-            gap: 8px;
-            flex-wrap: wrap;
-            overflow: hidden;
-            box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.4);
+        }
+
+        .flowchart-step:not(.target-step) .flowchart-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 18px solid rgba(148, 163, 184, 0.28);
+            border-right: 18px solid transparent;
+            border-top-left-radius: 14px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .flowchart-step:not(.target-step) .flowchart-front::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 12px solid rgba(255, 255, 255, 0.85);
+            border-right: 12px solid transparent;
+            transform: translate(1px, 1px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 11;
+        }
+
+        .flowchart-step:not(.target-step):not(.flipped):hover .flowchart-front::before {
+            border-top-color: rgba(59, 130, 246, 0.35);
+            transform: translate(2px, 0);
+        }
+
+        .flowchart-step:not(.target-step):not(.flipped):hover .flowchart-front::after {
+            transform: translate(3px, 1px);
         }
 
         .flowchart-back .tool-stack {
@@ -1009,9 +1048,9 @@
         }
 
         .flowchart-back .tool-tag {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #e2e8f0;
+            background: rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            color: #ffffff;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 12px;
@@ -1024,7 +1063,7 @@
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #94a3b8;
+            color: #cbd5e1;
             font-weight: 700;
             margin-right: 4px;
             white-space: nowrap;
@@ -1040,7 +1079,7 @@
 
         /* Experience Section */
         .experience-section {
-            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
         }
 
         .experience-card {
@@ -1121,7 +1160,7 @@
 
         /* Education & Languages */
         .education-section {
-            background: white;
+            background: linear-gradient(135deg, #faf5ff 0%, #f0f4ff 100%);
         }
 
         .two-column {
@@ -1169,7 +1208,7 @@
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
         }
 
         .contact-grid {
@@ -1249,6 +1288,11 @@
             left: 24px;
         }
 
+        [dir="rtl"] .floating-contact-bubble {
+            right: auto;
+            left: 24px;
+        }
+
         [dir="rtl"] .flowchart-node {
             flex-direction: row-reverse;
         }
@@ -1259,6 +1303,34 @@
 
         [dir="rtl"] .flowchart-node .step-badge {
             letter-spacing: 0; /* на иврите трекинг не нужен */
+        }
+
+        /* RTL corner positioning */
+        [dir="rtl"] .flowchart-step:not(.target-step) .flowchart-front::before {
+            left: auto;
+            right: 0;
+            border-top: 18px solid rgba(148, 163, 184, 0.28);
+            border-left: 18px solid transparent;
+            border-right: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 14px;
+        }
+
+        [dir="rtl"] .flowchart-step:not(.target-step) .flowchart-front::after {
+            left: auto;
+            right: 0;
+            border-top: 12px solid rgba(255, 255, 255, 0.85);
+            border-left: 12px solid transparent;
+            border-right: none;
+            transform: translate(-1px, 1px);
+        }
+
+        [dir="rtl"] .flowchart-step:not(.target-step):not(.flipped):hover .flowchart-front::before {
+            transform: translate(-2px, 0);
+        }
+
+        [dir="rtl"] .flowchart-step:not(.target-step):not(.flipped):hover .flowchart-front::after {
+            transform: translate(-3px, 1px);
         }
 
         /* Apple Product Backstory RTL support */
@@ -1312,8 +1384,12 @@
                 -webkit-backdrop-filter: none;
             }
 
+            section {
+                padding: 16px 16px;
+            }
+
             .hero {
-                padding: 48px 16px;
+                padding: 32px 16px;
             }
 
             .hero::before,
@@ -1501,11 +1577,17 @@
         <button class="lang-btn" onclick="toggleLanguage()">עברית</button>
     </div>
 
+    <div class="floating-contact-bubble" onclick="scrollToContact()">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+    </div>
+
     <section class="hero" style="position: relative; z-index: 100;">
         <div class="hero-content">
             <img src="profile-photo.png" alt="Denis Vazyulya" class="profile-photo">
             <h1 data-en="Denis Vazyulya" data-he="דניס וזיוליה">Denis Vazyulya</h1>
-            <p class="title" data-en="B2B Growth Leader & Hands-On Builder" data-he="מוביל צמיחת B2B ובונה בידיים">Business Development & Hands-On Builder</p>
+            <p class="title" data-en="Business Development & Hands-On Builder" data-he="פיתוח עסקי ובונה מעשי">Business Development & Hands-On Builder</p>
             <p class="location" data-en="Kiryat Motzkin, Israel" data-he="קריית מוצקין, ישראל">Kiryat Motzkin, Israel</p>
             
             <div class="tagline-box">
@@ -1866,7 +1948,7 @@
         </div>
     </section>
 
-    <section class="projects-section" style="background: radial-gradient(180deg, #f8fafc 0%, #edf2f7 100%); position: relative; overflow: hidden;">
+    <section class="projects-section" style="background: linear-gradient(135deg, #faf5ff 0%, #f0f4ff 100%); position: relative; overflow: hidden;">
         <div class="container">
             <h2 class="section-title" data-en="Featured project" data-he="פרויקט מוביל" style="font-weight: 800; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 56px;">Featured project</h2>
             
@@ -1887,10 +1969,10 @@
                     
                     <!-- App Store Premium Pill Button -->
                     <a href="https://apps.apple.com/il/app/forma3d/id6762095429" target="_blank" rel="noopener noreferrer" class="featured-app-store-btn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 3.37.48.33.95.49 1.49.49 2.07 0 .91-.54 1.76-1.49 2.07-1.34.92-2.22 2.13-3.05 3.37-.29.43-.5-.9-.5-1.4 0-.51.21-1.01.57-1.49.07-.58.16-1.16.01-1.64-.49-.92-2.45-2.13-3.37-3.05-.43-.29-.9-.5-1.4-.5-.51 0-1.01.21-1.49.57-.58.07-1.16-.01-1.64.49-.92 2.45-2.13 3.37-3.05.29-.43.5-.9.5-1.4 0-.51-.21-1.01-.57-1.49-.07-.58-.16-1.16-.01-1.64.49-1.24.83-2.45 1.71-3.37 3.05-.33.48-.49.95-.49 1.49 0 .91.54 1.76 1.49 2.07 1.34.92 2.22 2.13 3.05 3.37.43.29.9.5 1.4.5.51 0 1.01-.21 1.49-.57.58-.07 1.16-.01 1.64-.49.92-2.45 2.13-3.37 3.05-.29.43-.5.9-.5 1.4 0 .51.21 1.01.57 1.49.07.58.16 1.16.01 1.64-.49 1.24-.83 2.45-1.71 3.37-3.05.48-.33.95-.49 1.49-.49.91 0 1.76-.54 2.07-1.49zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                          <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                         </svg>
-                        <span data-en="App Store" data-he="App Store">App Store</span>
+                        <span data-en="Download on App Store" data-he="הורד ב-App Store">Download on App Store</span>
                     </a>
                 </div>
 
@@ -2138,6 +2220,20 @@
             const button = document.querySelector('.contact-dropdown-btn');
             dropdown.classList.toggle('show');
             button.classList.toggle('active');
+        }
+
+        function scrollToContact() {
+            const button = document.querySelector('.contact-dropdown-btn');
+            const dropdown = document.getElementById('contactDropdown');
+
+            // Scroll to button
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Open dropdown after scroll
+            setTimeout(() => {
+                dropdown.classList.add('show');
+                button.classList.add('active');
+            }, 500);
         }
 
         // Smart HR / Recruiter detection & UI update
