@@ -470,6 +470,49 @@
             border-top: 1px solid rgba(148, 163, 184, 0.2);
         }
 
+        .english-description-list,
+        .hebrew-description-list {
+            list-style: none;
+            padding: 24px 0 0 0;
+            margin: 0;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .english-description-list li,
+        .hebrew-description-list li {
+            position: relative;
+            padding: 12px 0 12px 32px;
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        .english-description-list li::before,
+        .hebrew-description-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+            border-radius: 50%;
+        }
+
+        [dir="rtl"] .english-description-list li,
+        [dir="rtl"] .hebrew-description-list li {
+            padding: 12px 32px 12px 0;
+        }
+
+        [dir="rtl"] .english-description-list li::before,
+        [dir="rtl"] .hebrew-description-list li::before {
+            left: auto;
+            right: 0;
+        }
+
         .hero .cta {
             display: inline-block;
             padding: 16px 40px;
@@ -1246,6 +1289,17 @@
             color: #1a1a1a;
         }
 
+        /* Phone numbers should always be LTR */
+        .phone-number {
+            direction: ltr !important;
+            unicode-bidi: embed;
+        }
+
+        /* In RTL mode, phone numbers should be right-aligned */
+        [dir="rtl"] .phone-number {
+            text-align: right;
+        }
+
         .contact-item:hover .value {
             color: #3b82f6;
         }
@@ -1587,12 +1641,25 @@
         <div class="hero-content">
             <img src="profile-photo.png" alt="Denis Vazyulya" class="profile-photo">
             <h1 data-en="Denis Vazyulya" data-he="דניס וזיוליה">Denis Vazyulya</h1>
-            <p class="title" data-en="Business Development & Hands-On Builder" data-he="פיתוח עסקי ובונה מעשי">Business Development & Hands-On Builder</p>
+            <p class="title" data-en="Business Development & Hands-On Builder" data-he="פיתוח עסקי ופתרונות מעשיים">Business Development & Hands-On Builder</p>
             <p class="location" data-en="Kiryat Motzkin, Israel" data-he="קריית מוצקין, ישראל">Kiryat Motzkin, Israel</p>
             
             <div class="tagline-box">
-                <h2 class="tagline" data-en="I grow revenue like a salesperson — and build the product like an engineer" data-he="אני מגדיל הכנסות כמו איש מכירות — ובונה את המוצר כמו מהנדס">I grow revenue like a salesperson — and build the product like an engineer</h2>
-                <p class="description" data-en="For nearly a decade I scaled B2B and wholesale revenue for a leading satellite operator — winning strategic partners and closing complex enterprise deals. Then I designed, built, and shipped a production iOS app to the App Store, solo. That's the rare combination I bring your team: the commercial instinct to grow the business, and the technical depth to actually build, automate, and ship it." data-he="במשך כמעט עשור הגדלתי הכנסות B2B וסיטונאות עבור מפעיל לוויינים מוביל — גייסתי שותפים אסטרטגיים וסגרתי עסקאות ארגוניות מורכבות. לאחר מכן תכננתי, בניתי והשקתי לבד אפליקצייה ל-iOS ב-App Store. זה השילוב הנדיר שאני מביא לצוות שלכם: החוש המסחרי להגדיל את העסק, והעומק הטכני לבנות, להפוך לאוטומציה ולהשיק בפועל.">For nearly a decade I scaled B2B and wholesale revenue for a leading satellite operator — winning strategic partners and closing complex enterprise deals. Then I designed, built, and shipped a production iOS app to the App Store, solo. That's the rare combination I bring your team: the commercial instinct to grow the business, and the technical depth to actually build, automate, and ship it.</p>
+                <h2 class="tagline" data-en="I grow revenue like a salesperson — and build the product like an engineer" data-he="איש מכירות ומנהל פרוייקטים מומחה בהגדלת רווחים">I grow revenue like a salesperson — and build the product like an engineer</h2>
+                <div class="description-wrapper">
+                    <ul class="english-description-list">
+                        <li>Over 10 years of B2B experience in satellite communications</li>
+                        <li>Expertise in strategic partner acquisition and complex enterprise deals</li>
+                        <li>Strong ability to integrate sales automation with product execution</li>
+                        <li>iOS app development with App Store deployment</li>
+                    </ul>
+                    <ul class="hebrew-description-list" style="display: none;">
+                        <li>יותר מ-10 שנים נסיון ב-B2B בתחום לווינים ותקשורת</li>
+                        <li>ידע בגיוס שותפים ובעיסקאות ארגוניות מורכבות</li>
+                        <li>יבלת גבוהה לשלב בין מכירות אוטומציה והשקה בפועל</li>
+                        <li>בניית אפליקציות ל-IOS ב- App Store</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="contact-dropdown">
@@ -2152,7 +2219,7 @@
                 </a>
                 <a href="tel:+9720533032762" class="contact-item">
                     <p class="label" data-en="Phone" data-he="טלפון">Phone</p>
-                    <p class="value">+972 053 303 2762</p>
+                    <p class="value phone-number">+972 053 303 2762</p>
                 </a>
                 <div class="contact-item contact-location">
                     <p class="label" data-en="Location" data-he="מיקום">Location</p>
@@ -2204,8 +2271,29 @@
             
             // Update all text content
             document.querySelectorAll('[data-en][data-he]').forEach(element => {
-                element.textContent = element.getAttribute(`data-${currentLang}`);
+                const newText = element.getAttribute(`data-${currentLang}`);
+                // Use innerHTML if the content contains <br> tags, otherwise use textContent
+                if (newText && newText.includes('<br>')) {
+                    element.innerHTML = newText;
+                } else {
+                    element.textContent = newText;
+                }
             });
+
+            // Toggle description list for language
+            const descriptionWrapper = document.querySelector('.description-wrapper');
+            if (descriptionWrapper) {
+                const englishList = descriptionWrapper.querySelector('.english-description-list');
+                const hebrewList = descriptionWrapper.querySelector('.hebrew-description-list');
+                
+                if (currentLang === 'he') {
+                    englishList.style.display = 'none';
+                    hebrewList.style.display = 'block';
+                } else {
+                    englishList.style.display = 'block';
+                    hebrewList.style.display = 'none';
+                }
+            }
 
             document.querySelectorAll('[data-tooltip-en][data-tooltip-he]').forEach(element => {
                 element.setAttribute('data-tooltip', element.getAttribute(`data-tooltip-${currentLang}`));
