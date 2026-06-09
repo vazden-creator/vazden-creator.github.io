@@ -140,7 +140,7 @@
 
 **Product Backstory:**
 - English: "As someone deep into 3D printing and development, I was always frustrated by one thing: why do I need to run to my desktop just to make a precise cut in an STL or add a simple mounting hole? I wanted a tool that combines the portability of an iPad with the precision of a desktop CAD. So, I built Forma3D. Most mobile 3D apps are great for 'sculpting' organic shapes, but they fail when you need exact dimensions or manifold geometry for 3D printing."
-- Hebrew: "כמי שעוסק בהדפסת תלת-ממד ובפיתוח, תמיד התסכל אותי דבר אחד: למה אני צריך לרוץ למחשב השולחני שלי רק כדי לבצע חיתוך מדויק ב-STL או להוסיף חור הרכבה פשוט? רציתי כלי שמשלב את הניידות של האייפד עם הדיוק של תוכנת CAD שולחנית. אז בניתי את Forma3D. רוב האפליקציות התלת-ממדיות לנייד מצוינות לפיסול צורות אורגניות, אך הן נכשלות כשצריך מידות מדויקות או גיאומטריה סגורה להדפסה."
+- Hebrew: "כמי שעוסק בהדפסות תלת ממדיות ובפיתוח, תמיד עניין אותי דבר אחד: לשם מה אני צריך להשתמש במחשב כדי לבצע חיתוך מדויק ב- STL או להוסיף חור הרכבה פשוט? רציתי כלי, שמשלב את ניידות האייפד עם הדיוק של תוכנת CAD. לכן בניתי את Forma3D. רוב האפליקציות התלת-ממדיות לנייד מצוינות לעיצוב צורות אורגניות, אך הן לא טובות/מתאימות/מצליחות לדייק במידות."
 
 **Engine & Frameworks:**
 - English: Engine & Frameworks
