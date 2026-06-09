@@ -72,13 +72,13 @@
 - English: AI & Automation
 - Hebrew: AI ואוטומציה
 - Skills: Agentic AI Workflows, GTM Automation, Process Automation, Workflow Optimization, Data-Driven Decisions
-- (Hebrew: זרימות עבודה של AI אוטונומי, אוטומציית GTM, אוטומציית תהליכים, אופטימיזציה של זרימות עבודה, החלטות מבוססות נתונים)
+- (Hebrew: תהליכי AI אוטונומיים, אוטומציית GTM, אוטומציית תהליכים, אופטימיזציה של זרימות עבודה, החלטות מבוססות נתונים)
 
 **Core Attributes:**
 - English: Core Attributes
-- Hebrew: תכונות ליבה
+- Hebrew: תכונות מרכזיות
 - Skills: Strategic Thinker, Results-Oriented, Cross-Functional Leader, Adaptable
-- (Hebrew: חשיבה אסטרטגית, מוכוון תוצאות, מנהיחות רוחבית, גמישות)
+- (Hebrew: חשיבה אסטרטגית, מוכוון תוצאות, יכולת עבודה רב תחומית, גמישות)
 
 ---
 
