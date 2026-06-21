@@ -2140,7 +2140,7 @@
                     <!-- Right: Site Preview Screenshot -->
                     <div style="flex: 1 1 280px; min-width: 0; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                         <div style="position: relative; border-radius: 24px; padding: 8px; background: #0f172a; box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(15,23,42,0.1); max-width: 520px; width: 100%; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='translateY(-6px) scale(1.02)'" onmouseout="this.style.transform='none'">
-                            <img src="muamad-preview.png" alt="MUAMAD.co.il website preview" style="width: 100%; display: block; border-radius: 18px; object-fit: cover;">
+                            <img src="muamad-preview.png" data-src-en="muamad-preview.png" data-src-he="muamad-preview-he.png" alt="MUAMAD.co.il website preview" style="width: 100%; display: block; border-radius: 18px; object-fit: cover;">
                         </div>
                     </div>
 
@@ -2363,6 +2363,10 @@
 
             document.querySelectorAll('[data-tooltip-en][data-tooltip-he]').forEach(element => {
                 element.setAttribute('data-tooltip', element.getAttribute(`data-tooltip-${currentLang}`));
+            });
+
+            document.querySelectorAll('[data-src-en][data-src-he]').forEach(element => {
+                element.setAttribute('src', element.getAttribute(`data-src-${currentLang}`));
             });
 
             const activeRole = document.getElementById('hrRoleBtn')?.classList.contains('active') ? 'hr' : 'user';
