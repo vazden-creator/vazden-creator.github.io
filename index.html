@@ -2100,7 +2100,7 @@
                     </div>
 
                     <!-- Visit Site Pill Button -->
-                    <a href="https://muamad.co.il" target="_blank" rel="noopener noreferrer" class="featured-app-store-btn">
+                    <a href="https://muamad.co.il/en" data-href-en="https://muamad.co.il/en" data-href-he="https://muamad.co.il/he" target="_blank" rel="noopener noreferrer" class="featured-app-store-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="9"></circle>
                             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -2367,6 +2367,10 @@
 
             document.querySelectorAll('[data-src-en][data-src-he]').forEach(element => {
                 element.setAttribute('src', element.getAttribute(`data-src-${currentLang}`));
+            });
+
+            document.querySelectorAll('[data-href-en][data-href-he]').forEach(element => {
+                element.setAttribute('href', element.getAttribute(`data-href-${currentLang}`));
             });
 
             const activeRole = document.getElementById('hrRoleBtn')?.classList.contains('active') ? 'hr' : 'user';
